@@ -1,0 +1,13 @@
+node_modules
+.idea
+.vscode
+.DS_Store
+.env
+.env.example
+.env.local
+.env.test
+.env.test.example
+.env.test.local
+.env.test.local.example
+.env.test.local.example.env
+package-lock.json
