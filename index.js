@@ -10,18 +10,30 @@ const path = require('path');
 program.version(version, '-v, --version')
   .command('init <templateName> <projectName>')
   .action((templateName, projectName) => {
-    if (templateName === "vue") {
-      console.log('clone template ...');
-      download('github:mileagewan/mileage-cli-vue-template', projectName, function (err) {
-        console.log(err ? 'Error' : 'Success')
-      })
-    } else if (templateName === "react") {
-      console.log('clone template ...');
-      download('github:mileagewan/mileage-cli-react-template', projectName, function (err) {
-        console.log(err ? 'Error' : 'Success')
-      })
-    } else {
-      console.error('A template name that does not exist')
+    switch (templateName) {
+      case 'vue':
+        console.log('clone template ...');
+        download('github:mileagewan/mileage-cli-vue-template', projectName, function (err) {
+          console.log(err ? 'Error' : 'Success')
+        })
+        break;
+      case 'react':
+        console.log('clone template ...');
+        download('github:mileagewan/mileage-cli-react-template', projectName, function (err) {
+          console.log(err ? 'Error' : 'Success')
+        })
+        break
+      case 'vue-mobile':
+        console.log('clone template ...');
+        download('github:mileagewan/mileage-cli-vue-moblie-template', projectName, function (err) {
+          console.log(err ? 'Error' : 'Success')
+        })
+        break
+
+      default:
+        console.error('A template name that does not exist')
+      break
+
     }
   });
 program.command('mock <dataPath> <port>')
